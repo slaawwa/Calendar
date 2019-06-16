@@ -80,18 +80,20 @@ tr {
 .month-popup div {
     padding: 0.3em;
 }
-
-.nav-month {
+td.month-year {
+    text-align: center;
+}
+.r-nav-month {
     position: absolute;
     top: 0.6em;
-    font-size: 0.6em;
-    right:3px;
+    font-size: 15px;
+    right:30px;
 }
-
-.prev {
-}
-
-.next {
+.l-nav-month {
+    position: absolute;
+    top: 0.6em;
+    font-size: 15px;
+    left:30px;
 }
 
 .editor-year {
@@ -110,4 +112,13 @@ tr {
 
 td.label-month {
         text-align: center;
+}
+.arrow {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.arrow:hover {
+    background-color: skyblue;
 }

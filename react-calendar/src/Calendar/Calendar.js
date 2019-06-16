@@ -231,17 +231,19 @@ class Calendar extends React.Component {
               <table className="calendar">
                   <thead>
                       <tr className="calendar-header">
-                          <td colSpan="5">
+                          <td colSpan="2" className="l-nav-month">
+                                <i className="arrow"
+                                  onClick={(e)=> {this.prevMonth()}}> 	&#8592;
+                              </i>
+                              </td>
+                          <td colSpan="5" className="month-year">
                               <this.MonthNav />
                               {" "}
                               <this.YearNav />
                           </td>
-                          <td colSpan="2" className="nav-month">
-                              <i className="prev fa fa-fw fa-chevron-left"
-                                  onClick={(e)=> {this.prevMonth()}}>
-                              </i>
-                              <i className="prev fa fa-fw fa-chevron-right"
-                                  onClick={(e)=> {this.nextMonth()}}>
+                          <td colSpan="2" className="r-nav-month">
+                              <i className="arrow"
+                                  onClick={(e)=> {this.nextMonth()}}>&#8594;
                               </i>
 
                           </td>
