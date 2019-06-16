@@ -14,7 +14,7 @@ class Calendar extends React.Component {
 
   constructor(props) {
       super(props);
-      this.width = props.width || "350px";
+      this.width = props.width || "1120px";
       this.style = props.style || {};
       this.style.width = this.width; 
   }
@@ -231,9 +231,9 @@ class Calendar extends React.Component {
               <table className="calendar">
                   <thead>
                       <tr className="calendar-header">
-                          <td colSpan="2" className="l-nav-month">
+                          <td colSpan="1" className="l-nav-month">
                                 <i className="arrow"
-                                  onClick={(e)=> {this.prevMonth()}}> 	&#8592;
+                                  onClick={(e)=> {this.prevMonth()}}> &#10232;
                               </i>
                               </td>
                           <td colSpan="5" className="month-year">
@@ -241,9 +241,9 @@ class Calendar extends React.Component {
                               {" "}
                               <this.YearNav />
                           </td>
-                          <td colSpan="2" className="r-nav-month">
+                          <td colSpan="1" className="r-nav-month">
                               <i className="arrow"
-                                  onClick={(e)=> {this.nextMonth()}}>&#8594;
+                                  onClick={(e)=> {this.nextMonth()}}>&#10233;
                               </i>
 
                           </td>
