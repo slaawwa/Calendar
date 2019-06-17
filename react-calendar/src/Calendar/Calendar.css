@@ -6,6 +6,11 @@
     margin: 0;
 }
 
+.title {
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
 .calendar-container {
     border: 2px solid skyblue;
 }

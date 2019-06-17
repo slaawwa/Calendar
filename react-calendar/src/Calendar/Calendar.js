@@ -43,7 +43,7 @@ class Calendar extends React.Component {
 
   firstDayOfMonth = () => {
       let dateContext = this.state.dateContext;
-      let firstDay = moment(dateContext).startOf('month').format('d'); // Day of week 0...1..5...6
+      let firstDay = moment(dateContext).startOf('month').format('d');
       return firstDay;
   }
 
@@ -227,7 +227,10 @@ class Calendar extends React.Component {
       })
 
       return (
+          <div>
+        <div className="title"> Ваш календарь</div>
           <div className="calendar-container" style={this.style}>
+              
               <table className="calendar">
                   <thead>
                       <tr className="calendar-header">
@@ -254,9 +257,10 @@ class Calendar extends React.Component {
                           {weekdays}
                       </tr>
                       {trElems}
+
                   </tbody>
               </table>
-
+                </div>
           </div>
 
       );

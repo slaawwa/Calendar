@@ -4,6 +4,7 @@ import './modal/modal.css'
 
 import Modal from './modal/modal'
 import Calendar from './Calendar/Calendar'
+import addEvent from './modal/changeInputValue'
 
 const style = {
   position: "relative",
@@ -16,6 +17,9 @@ class App extends Component {
 
     this.state = {
         isShowing: false
+    }
+    this.state = {
+      inputValue: ''
     }
 }
 
@@ -31,6 +35,8 @@ closeModalHandler = () => {
     });
 }
 
+
+
 render () {
     return (
         <div>
@@ -40,12 +46,19 @@ render () {
                 className="modal"
                 show={this.state.isShowing}
                 close={this.closeModalHandler}
+                save={this.updateInputValue}
                 day={this.selectedDay}>
-                   <input type="textarea"/>
+                 <input type="textarea" onChange={e => {
+            this.setState({
+              inputValue: e.target.value
+            });
+          }}/>
             </Modal>
         </div>
     );
+    
 }
+
 }
 
 
