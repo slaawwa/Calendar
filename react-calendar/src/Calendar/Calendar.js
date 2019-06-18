@@ -9,7 +9,8 @@ class Calendar extends React.Component {
       today: moment(),
       showMonthPopup: false,
       showYearPopup: false,
-      selectedDay: null
+      selectedDay: null,
+      
   }
 
   constructor(props) {
@@ -17,6 +18,8 @@ class Calendar extends React.Component {
       this.width = props.width || "1120px";
       this.style = props.style || {};
       this.style.width = this.width; 
+
+      
   }
 
 
@@ -189,11 +192,11 @@ class Calendar extends React.Component {
 
       let daysInMonth = [];
       for (let d = 1; d <= this.daysInMonth(); d++) {
-          let className = (d == this.currentDay() ? "day current-day": "day");
-          let selectedClass = (d == this.state.selectedDay ? " selected-day " : "")
+          let className = (d === this.currentDay() ? "day current-day": "day");
+          let selectedClass = (d === this.state.selectedDay ? " selected-day " : "")
           daysInMonth.push(
               <td key={d} className={className + selectedClass} >
-                  <span onClick={(e)=>{this.onDayClick(e, d)}}>{d}</span>
+                  <div  className="slot" onClick={(e)=>{this.onDayClick(e, d)}}>{d}</div>
               </td>
           );
       }

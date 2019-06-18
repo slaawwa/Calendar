@@ -60,7 +60,6 @@ span.day, span.week-day {
     width: 160px;
     text-align: right;
     vertical-align: 0%;
-    padding: 4px;
     border: 1px solid #4285f4;
 }
 
@@ -78,7 +77,10 @@ span.day, span.week-day {
     height: 109px;
     width: 160px;
 }
-
+.slot {
+    height: 102px;
+    width: 155px;
+}
 .month-popup {
     position: absolute;
     padding: 5px;

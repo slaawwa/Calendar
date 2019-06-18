@@ -4,7 +4,7 @@ import './modal/modal.css'
 
 import Modal from './modal/modal'
 import Calendar from './Calendar/Calendar'
-import addEvent from './modal/changeInputValue'
+import SaveEvent from './features/saveEvent'
 
 const style = {
   position: "relative",
@@ -35,6 +35,10 @@ closeModalHandler = () => {
     });
 }
 
+saveModalHandler = () => {
+  
+}
+
 
 
 render () {
@@ -43,17 +47,12 @@ render () {
           <Calendar style={style} width="1120px" 
                 onDayClick={(e, day)=> this.openModalHandler(e, day)}/>
           <Modal
-                className="modal"
                 show={this.state.isShowing}
                 close={this.closeModalHandler}
-                save={this.updateInputValue}
+                save={this.saveModalHandler}
                 day={this.selectedDay}>
-                 <input type="textarea" onChange={e => {
-            this.setState({
-              inputValue: e.target.value
-            });
-          }}/>
-            </Modal>
+                 <input type="text" placeholder="Enter a new event" ref={(ref) => this.eventInput = ref}/>            </Modal>
+          <SaveEvent/>
         </div>
     );
     
