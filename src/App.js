@@ -17,8 +17,6 @@ class App extends Component {
 
     this.state = {
       isShowing: false,
-    }
-    this.state = {
       inputValue: '',
     }
   }
