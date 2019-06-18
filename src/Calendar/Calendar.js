@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import './Calendar.css'
+import db from '../features/db'
 
 class Calendar extends React.Component {
   state = {
@@ -204,6 +205,7 @@ class Calendar extends React.Component {
     for (let d = 1; d <= this.daysInMonth(); d++) {
       let className = d === this.currentDay() ? 'day current-day' : 'day'
       let selectedClass = d === this.state.selectedDay ? ' selected-day ' : ''
+      const msg = db.get(d)
       daysInMonth.push(
         <td key={d} className={className + selectedClass}>
           <div
@@ -213,6 +215,11 @@ class Calendar extends React.Component {
             }}
           >
             {d}
+            { msg && (
+              <div>
+                {msg}
+              </div>
+            )}
           </div>
         </td>
       )

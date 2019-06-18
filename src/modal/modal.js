@@ -25,7 +25,7 @@ const modal = props => {
           <button className="btn-cancel" onClick={props.close}>
             ОТМЕНА
           </button>
-          <button className="btn-continue">СОХРАНИТЬ</button>
+          <button className="btn-continue" onClick={props.save}>СОХРАНИТЬ</button>
         </div>
       </div>
     </div>

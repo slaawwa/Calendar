@@ -5,6 +5,7 @@ import './modal/modal.css'
 import Modal from './modal/modal'
 import Calendar from './Calendar/Calendar'
 import SaveEvent from './features/saveEvent'
+import db from './features/db'
 
 const style = {
   position: 'relative',
@@ -12,18 +13,24 @@ const style = {
 }
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       isShowing: false,
       inputValue: '',
+      selectedDay: null,
     }
   }
 
-  openModalHandler = () => {
+  openModalHandler = (e, selectedDay) => {
+    console.log('day:', selectedDay)
     this.setState({
+      selectedDay,
       isShowing: true,
+    }, () => {
+      this.eventInput.value = db.get(selectedDay)
+      this.eventInput.focus()
     })
   }
 
@@ -33,7 +40,13 @@ class App extends Component {
     })
   }
 
-  saveModalHandler = () => {}
+  saveModalHandler = () => {
+    db.set(this.state.selectedDay, this.eventInput.value)
+    this.setState({
+      inputValue: this.eventInput.value,
+      isShowing: false,
+    })
+  }
 
   render() {
     return (
