@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import './modal/modal.css'
 
 import Modal from './modal/modal'
@@ -7,59 +7,60 @@ import Calendar from './Calendar/Calendar'
 import SaveEvent from './features/saveEvent'
 
 const style = {
-  position: "relative",
-  margin: "50px auto"
+  position: 'relative',
+  margin: '50px auto',
 }
 
 class App extends Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
-        isShowing: false
+      isShowing: false,
     }
     this.state = {
-      inputValue: ''
+      inputValue: '',
     }
-}
+  }
 
-openModalHandler = () => {
+  openModalHandler = () => {
     this.setState({
-        isShowing: true
-    });
-}
+      isShowing: true,
+    })
+  }
 
-closeModalHandler = () => {
+  closeModalHandler = () => {
     this.setState({
-        isShowing: false
-    });
-}
+      isShowing: false,
+    })
+  }
 
-saveModalHandler = () => {
-  
-}
+  saveModalHandler = () => {}
 
-
-
-render () {
+  render() {
     return (
-        <div>
-          <Calendar style={style} width="1120px" 
-                onDayClick={(e, day)=> this.openModalHandler(e, day)}/>
-          <Modal
-                show={this.state.isShowing}
-                close={this.closeModalHandler}
-                save={this.saveModalHandler}
-                day={this.selectedDay}>
-                 <input type="text" placeholder="Enter a new event" ref={(ref) => this.eventInput = ref}/>            </Modal>
-          <SaveEvent/>
-        </div>
-    );
-    
+      <div>
+        <Calendar
+          style={style}
+          width="1120px"
+          onDayClick={(e, day) => this.openModalHandler(e, day)}
+        />
+        <Modal
+          show={this.state.isShowing}
+          close={this.closeModalHandler}
+          save={this.saveModalHandler}
+          day={this.selectedDay}
+        >
+          <input
+            type="text"
+            placeholder="Enter a new event"
+            ref={ref => (this.eventInput = ref)}
+          />{' '}
+        </Modal>
+        <SaveEvent />
+      </div>
+    )
+  }
 }
-
-}
-
-
 
 export default App
